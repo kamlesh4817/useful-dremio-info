@@ -1,0 +1,7 @@
+Metadata refresh for Iceberg tables follow the same pattern as other metadata refresh i.e. it is based on the Metadata Refresh settings set on the Source and the Support Key dremio.metadata_expiry_check_interval_in_secs (default is 60 seconds) is only utilized during the Query Execution process to determine if the "Cached Metadata" is more than 1 min old for every query and if the "Cached Metadata" is more than 1 min old an "In-line" Metadata Refresh will be triggered. 
+Iceberg metadata refresh obeys the metadata refresh settings on the source, with one caveat: 
+  For Hive/Glue sources, when an Iceberg table is queried, if the cached metadata is older than 60 seconds, it will perform an inline refresh to get the latest metadata.  This can be adjusted via the source property dremio.metadata_expiry_check_interval_in_secs
+  Metadata age is based on when it was last refreshed.
+Client shared the following details/questions w.r.t to the CHMOD query 
+1) Data and metadata directories (<db>/<table>/data and <db>/<table>/metadata) have 755 when created with Dremio. Spark runs under a different userid and cannot create new files/directories for such tables. 
+2) When we need to expire snapshots, 755 will prevent Spark from doing it for tables that have been created/maintained with Dremio.
