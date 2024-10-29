@@ -1,3 +1,11 @@
+https://github.com/developer-advocacy-dremio
+
+https://github.com/developer-advocacy-dremio/quick-guides-from-dremio/tree/main
+
+https://www.tabular.io/apache-iceberg-cookbook/migration-migrate/
+https://iceberg.apache.org/docs/1.6.0/hive-migration/?h=migrate
+https://www.dremio.com/blog/migration-guide-for-apache-iceberg-lakehouses/
+
 https://github.com/dremio-brock/dremio-postman
 https://medium.com/@alexmercedcoder
 https://dev.to/alexmercedcoder
